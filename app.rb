@@ -12,7 +12,7 @@ end
 get '/' do
   
  response = Twilio::TwiML::Response.new do |r|
-    r.Pause :length=>"5"
+    r.Pause :length=>"2"
     r.Say 'Welcome to Daycare #1', :voice => 'woman'
     if params[:Digits] = "123"
     r.Gather :action=>"http://sleepy-river-3449.herokuapp.com/jesse", :method => "GET"
@@ -25,10 +25,10 @@ end
 
 get '/jesse'  do
   response = Twilio::TwiML::Response.new do |r|
-   r.Dial :callerId =>"+13474620270" do |d|
-    d.Number "+13476108367"
+   r.Dial do |d|
+    d.Conference "Room 123", :startConferenceOnEnter=>"true", :endConferenceOnExit=>"true"
     end
-   r.say "Connected", :voice => 'connected'
+   r.say "Connected", :voice => 'man'
   end
 
 response.text
