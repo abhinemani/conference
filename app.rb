@@ -13,7 +13,7 @@ get '/' do
   
  response = Twilio::TwiML::Response.new do |r|
     r.Say 'Welcome to Daycare #1', :voice => 'woman'
-    r.Gather :numDigits=>"1", :action=>"/jesse"
+    r.Gather :numDigits=>"1", :action=>"http://sleepy-river-3449.herokuapp.com/jesse"
  end  
 
 response.text
