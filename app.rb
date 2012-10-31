@@ -26,7 +26,7 @@ end
 get '/jesse'  do
   response = Twilio::TwiML::Response.new do |r|
    r.Dial do |d|
-    d.Conference "RoomPop", :waitUrl=>"http://com.twilio.music.classical.s3.amazonaws.com/ClockworkWaltz.mp3" ,:startConferenceOnEnter=>"true", :endConferenceOnExit=>"true"
+    d.Conference "RoomPop", :waitUrl=>"http://twimlets.com/holdmusic?Bucket=com.twilio.music.classical" ,:startConferenceOnEnter=>"true", :endConferenceOnExit=>"true"
     end
   
   end
