@@ -14,6 +14,7 @@ get '/' do
  response = Twilio::TwiML::Response.new do |r|
     r.Pause :length=>"1"
     r.Say ' Welcome  to  my  Conference call to enter please press 1  2  3 #', :voice => 'woman', :language => 'en'
+    if params[:Digits] = "123"
     r.Gather :action=>"/abhi", :method => "GET"
   end
  end  
